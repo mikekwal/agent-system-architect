@@ -101,3 +101,7 @@ coding assistants can read it too.
 
 Built by Mike Kwal at MK-Way while building an AI business development agent and deciding it should be
 built properly. The framework is deliberately domain-neutral: same architecture, not the same agent.
+
+## Licence
+
+MIT. Use it, change it, build on it. Keep the copyright notice.
