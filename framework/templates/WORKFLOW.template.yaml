@@ -1,0 +1,29 @@
+# Design-only workflow contract. Implement it explicitly in your orchestrator.
+workflow_id: replace_with_workflow_id
+version: 0.1.0
+trigger:
+  event_type: replace_with_event
+  payload_schema_ref: ./schemas/trigger.schema.json
+run:
+  id_required: true
+  idempotency_key_required: true
+  max_steps: 12
+  timeout_seconds: 300
+states:
+  - created
+  - queued
+  - running
+  - waiting_approval
+  - completed
+  - failed
+  - cancelled
+  - escalated
+handoffs:
+  require_structured_output: true
+  include_evidence_refs: true
+completion:
+  validation_rules: []
+  persist_result: true
+failure:
+  bounded_retries: true
+  human_escalation: true

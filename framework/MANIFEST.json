@@ -1,0 +1,167 @@
+{
+  "framework": "universal.agentic.anatomy",
+  "version": "1.0.0",
+  "created": "2026-10-13",
+  "files": [
+    {
+      "path": "00_START_HERE.md",
+      "size_bytes": 3148,
+      "sha256": "911d1572084deba315d7a2eba7029d872339e8632c02f9d56b2d353fb5078034"
+    },
+    {
+      "path": "AGENTIC_AI_ANATOMY.md",
+      "size_bytes": 6902,
+      "sha256": "336f6d899059175658d10bcc6dc9f18dd4ffa12f4f15ebdc65f43e194bd6f1b3"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size_bytes": 369,
+      "sha256": "77aa2455053c873dd24aa215989957c3f272f3f3c340599373ba19c002c0c188"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 4150,
+      "sha256": "c5fa3a2f8a41b6a632ed173cba4bb0364d4b87d86d74760207594f1b856987f6"
+    },
+    {
+      "path": "claude-code/CLAUDE_MD_SNIPPET.md",
+      "size_bytes": 903,
+      "sha256": "f465049fb4c2a86b255bae3698c441c41a50e3818f9f65d7a425593bf1fcfccf"
+    },
+    {
+      "path": "claude-code/HANDOFF_PROMPT.md",
+      "size_bytes": 1821,
+      "sha256": "5e1858396b40bb5dae8bfe8fae54dcde76f6fcb47e5dc6c1439a69aa198a5995"
+    },
+    {
+      "path": "claude-code/optional-skill/agent-system-architect/SKILL.md",
+      "size_bytes": 1890,
+      "sha256": "8f693b47e902690e4dea38dabc4139eebfd476f9d58985e4f9a9cd46479a2a19"
+    },
+    {
+      "path": "contracts/agent-spec.example.json",
+      "size_bytes": 2378,
+      "sha256": "85be21dc0ae84cb568c8e70fda24467d1d2df5d0686591db3655f192b5beaea1"
+    },
+    {
+      "path": "contracts/agent-spec.schema.json",
+      "size_bytes": 7323,
+      "sha256": "6af4fca50127f7aaa7216460248b29833cc66eb8a7100746b87bd8d6651cffa0"
+    },
+    {
+      "path": "contracts/run-result.example.json",
+      "size_bytes": 405,
+      "sha256": "53b220eb6241d5d4baf06f276df83b9721461abf4082a7ca3f13c3d21eed1999"
+    },
+    {
+      "path": "contracts/run-result.schema.json",
+      "size_bytes": 2685,
+      "sha256": "c06c14d8a26b3b0c65c9c6930a5970cbbc83f2f2c37e2a251c0e72b99beae6a8"
+    },
+    {
+      "path": "diagrams/01_NINE_PART_SPINE.dot",
+      "size_bytes": 2172,
+      "sha256": "288987ba2abe533757bcbf3de9bf4d4e6a049e25f0a3693bf9eac1c601248441"
+    },
+    {
+      "path": "diagrams/01_NINE_PART_SPINE.mmd",
+      "size_bytes": 461,
+      "sha256": "715e0067236ec4986d045f3db832534810ac756f2073db5b3c4b0d52c86b1dc0"
+    },
+    {
+      "path": "diagrams/01_NINE_PART_SPINE.png",
+      "size_bytes": 85948,
+      "sha256": "5e54ecaada96d0c89838af3dab50f76853d3c0ef8c1fccecbac6129091e62bb5"
+    },
+    {
+      "path": "diagrams/01_NINE_PART_SPINE.svg",
+      "size_bytes": 11581,
+      "sha256": "b3e90e6f5a4f5573c5134fd4eac58543e182286a419526d3af5230da45e2e59b"
+    },
+    {
+      "path": "diagrams/02_AGENT_LOOP.mmd",
+      "size_bytes": 448,
+      "sha256": "571b1341e5c7bae0f0284dc2123101f4888821deb156b00a825cd1b00789fc95"
+    },
+    {
+      "path": "diagrams/03_RUNTIME_BOUNDARIES.mmd",
+      "size_bytes": 416,
+      "sha256": "cda2bce0726b1acc513a1b858ea014bd98c49c52d421dfefe92e66a4de72ffe8"
+    },
+    {
+      "path": "docs/01_DIRECTIVES_SKILLS_TOOLS.md",
+      "size_bytes": 2785,
+      "sha256": "9b30bc70811b78a0de8a6081989291b8fb045ad5aa3b870d41f434f7eff8661b"
+    },
+    {
+      "path": "docs/02_ORCHESTRATION_AND_WORKFLOWS.md",
+      "size_bytes": 3053,
+      "sha256": "3098aa5c4aa409990532d6d2f549670b67e0b9a9bab2c044f0bd67c98a1c8b67"
+    },
+    {
+      "path": "docs/03_CONTEXT_MEMORY_AND_LEARNING.md",
+      "size_bytes": 2083,
+      "sha256": "6b88a60a35128242b19a3378ae072f53affcfa0b6d3a9900053431cbf3c6a722"
+    },
+    {
+      "path": "docs/04_LOCAL_AND_CLOUD.md",
+      "size_bytes": 3025,
+      "sha256": "5e1ee75d369cef14d1bbb08ea2bd1ee7b5fcc33a0f54c7bfe5ca591286b0eb38"
+    },
+    {
+      "path": "docs/05_SECURITY_AND_GOVERNANCE.md",
+      "size_bytes": 2104,
+      "sha256": "b3dfb8ad5b85121eaa7e67af0d0cac923ca94541e6a92b2f0728d9253fbaf890"
+    },
+    {
+      "path": "docs/06_EVALUATION_AND_OPERATIONS.md",
+      "size_bytes": 1845,
+      "sha256": "69b941b29799b0989029d86366687586f33b36212e7572ae38fcdfc1ff55aa7f"
+    },
+    {
+      "path": "docs/07_DESIGN_METHOD.md",
+      "size_bytes": 2419,
+      "sha256": "a0ec8c8043609038922f2c43ac8df471abf0525d799536ee07162d3a30d43502"
+    },
+    {
+      "path": "docs/08_TEACHING_GUIDE.md",
+      "size_bytes": 1610,
+      "sha256": "05431ba53e4bbed58ff7f6a148b85a0cd52aaf2f85e87c2234044ece27d31a24"
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "size_bytes": 1660,
+      "sha256": "95793fba6bc8f9575f1243ff97e1a95c38c4e9a3099025c825de54c7c9b925eb"
+    },
+    {
+      "path": "templates/AGENT_DIRECTIVE.template.md",
+      "size_bytes": 1088,
+      "sha256": "f99a71cf50ed69ab2d73c9070b759093b73ff420b1d77d9403291904807d71f7"
+    },
+    {
+      "path": "templates/ARCHITECTURE_REVIEW.template.md",
+      "size_bytes": 1323,
+      "sha256": "3ef4b462e11988134d0d635296dae2b0c8cbf9f37b5130a278ce34f9ed275945"
+    },
+    {
+      "path": "templates/HANDOFF.template.md",
+      "size_bytes": 553,
+      "sha256": "3dbc27d695df9c4f2bbe96d9fa250b4123e9ca466b79f47d065950d395d7d6e1"
+    },
+    {
+      "path": "templates/SKILL.template.md",
+      "size_bytes": 1061,
+      "sha256": "3536949f9b654c042fcaead345413e3958e3736f8b57754eac9587de22c44986"
+    },
+    {
+      "path": "templates/TOOL.template.yaml",
+      "size_bytes": 628,
+      "sha256": "ea19ec286ce622773fd1ff5b3a16df6aa26929d9e5e66f6415325ea7a69842c7"
+    },
+    {
+      "path": "templates/WORKFLOW.template.yaml",
+      "size_bytes": 630,
+      "sha256": "4146bff93eacf4aa7e013b87a20fe2d815f177a08eda554693baefd078829448"
+    }
+  ]
+}

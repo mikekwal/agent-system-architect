@@ -1,0 +1,29 @@
+digraph anatomy {
+  graph [bgcolor="white",rankdir=TB,pad="0.42",nodesep="0.26",ranksep="0.34",fontname="DejaVu Sans",labelloc="t",label="ANATOMY OF AN AGENTIC AI SYSTEM\nA universal architectural spine",fontsize=24,fontcolor="#12223A"];
+  node [shape=box,style="rounded,filled",fontname="DejaVu Sans",fontcolor="#16253C",fontsize=11,penwidth=1.0,margin="0.22,0.14"];
+  edge [color="#7A8CA6",penwidth=1.4,arrowsize=0.7];
+  trigger [label="A1 · TRIGGER\nWhy does a run begin?",fillcolor="#DDEAFE",color="#A1C1E9"];
+  orchestrator [label="A9 · ORCHESTRATION + VALIDATION\nControls steps, approvals, QA, retries and completion",fillcolor="#DDE8F7",color="#6795CE",penwidth=1.8,fontsize=12];
+  directive [label="A2 · DIRECTIVE / DOE\nRole, goals and boundaries",fillcolor="#E2F4EA",color="#A9D1BB"];
+  brain [label="A3 · MODEL / BRAIN\nReasoning and choices",fillcolor="#FCE2EA",color="#E6AEBB"];
+  skills [label="A4 · SKILLS\nReusable procedures",fillcolor="#FFF1D7",color="#ECCB8D"];
+  tools [label="A5 · TOOLS\nExecutable capabilities",fillcolor="#E5EDF9",color="#AFC3E2"];
+  context [label="A6 · CONTEXT\nRelevant evidence now",fillcolor="#EAE5FB",color="#BDB1E7"];
+  memory [label="A7 · MEMORY / STATE\nDurable continuity",fillcolor="#E2F4EA",color="#A9D1BB"];
+  runtime [label="A8 · RUNTIME\nCLI, container or hosted worker",fillcolor="#F2ECE7",color="#C9B7A7"];
+  output [label="VERIFIED OUTCOME + TRACE\nPersist result, record evidence, stop or hand off",fillcolor="#183557",fontcolor="white",color="#183557",fontsize=12];
+  {rank=same; directive; brain; skills}
+  {rank=same; tools; context; memory}
+  trigger -> orchestrator [minlen=1];
+  directive -> orchestrator [style=dashed];
+  brain -> orchestrator [style=dashed];
+  skills -> orchestrator [style=dashed];
+  orchestrator -> tools [dir=both];
+  orchestrator -> context [dir=both];
+  orchestrator -> memory [dir=both];
+  runtime -> orchestrator [style=dashed,constraint=false];
+  orchestrator -> output [minlen=2];
+  output -> memory [style=dashed,constraint=false];
+  directive -> brain [style=invis]; brain -> skills [style=invis];
+  tools -> context [style=invis]; context -> memory [style=invis];
+}

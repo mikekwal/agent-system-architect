@@ -1,0 +1,11 @@
+flowchart TB
+  Trigger["A1 Trigger"] --> Orch["A9 Orchestration + Validation"]
+  Directive["A2 Directive / DOE"] -. rules .-> Orch
+  Model["A3 Model / Brain"] <--> Orch
+  Skills["A4 Skills / Procedures"] -. methods .-> Orch
+  Tools["A5 Tools / Actions"] <--> Orch
+  Context["A6 Context"] <--> Orch
+  State["A7 Memory / State"] <--> Orch
+  Runtime["A8 Runtime"] -. executes and hosts .-> Orch
+  Orch --> Verified["Verified outcome + trace"]
+  Verified --> State

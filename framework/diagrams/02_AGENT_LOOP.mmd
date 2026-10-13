@@ -1,0 +1,11 @@
+flowchart LR
+  Event["Trigger / Event"] --> Init["Initialize run + context"]
+  Init --> Observe["Observe"]
+  Observe --> Decide["Plan / Decide"]
+  Decide --> Call["Authorize and execute tool"]
+  Call --> Check{"Validated and complete?"}
+  Check -->|No, within limits| Observe
+  Check -->|Yes| Save["Save result and state"]
+  Check -->|Blocked / exhausted| Escalate["Escalate or fail safely"]
+  Save --> End["Terminal run state"]
+  Escalate --> End

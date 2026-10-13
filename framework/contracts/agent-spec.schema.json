@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/universal-agent-spec.schema.json",
+  "title": "Universal Agent Design Manifest (not an executable runtime config)",
+  "description": "Portable descriptive contract. Application-specific code must implement it; no universal runner parses this automatically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "framework_version",
+    "status",
+    "agent"
+  ],
+  "properties": {
+    "framework_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "reviewed",
+        "approved",
+        "implemented"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "purpose",
+        "trigger",
+        "directive",
+        "model",
+        "skills",
+        "tools",
+        "context",
+        "state",
+        "runtime",
+        "orchestration",
+        "validation"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{2,63}$"
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 5
+        },
+        "trigger": {
+          "type": "object",
+          "required": [
+            "types",
+            "input_schema_ref"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "types": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "input_schema_ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "authentication_required": {
+              "type": "boolean"
+            }
+          }
+        },
+        "directive": {
+          "type": "object",
+          "required": [
+            "file",
+            "version"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "file": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "loaded_by": {
+              "type": "string"
+            }
+          }
+        },
+        "model": {
+          "type": "object",
+          "required": [
+            "provider_policy",
+            "selection_policy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "provider_policy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "selection_policy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fallback_policy": {
+              "type": "string"
+            }
+          }
+        },
+        "skills": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "effect_class",
+              "approval_required"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "effect_class": {
+                "enum": [
+                  "read",
+                  "reversible_write",
+                  "irreversible_or_external_write"
+                ]
+              },
+              "approval_required": {
+                "type": "boolean"
+              },
+              "input_schema_ref": {
+                "type": "string"
+              },
+              "output_schema_ref": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "context": {
+          "type": "object",
+          "required": [
+            "sources",
+            "trust_policy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "trust_policy": {
+              "type": "string"
+            },
+            "max_tokens_hint": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "state": {
+          "type": "object",
+          "required": [
+            "persistence",
+            "key",
+            "retention_policy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "persistence": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            },
+            "retention_policy": {
+              "type": "string"
+            },
+            "retrieval_policy": {
+              "type": "string"
+            }
+          }
+        },
+        "runtime": {
+          "type": "object",
+          "required": [
+            "type",
+            "execution_environment"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "enum": [
+                "local_cli",
+                "managed",
+                "cloud_worker",
+                "container",
+                "other"
+              ]
+            },
+            "execution_environment": {
+              "type": "string"
+            },
+            "secrets_policy": {
+              "type": "string"
+            }
+          }
+        },
+        "orchestration": {
+          "type": "object",
+          "required": [
+            "pattern",
+            "max_steps",
+            "timeout_seconds",
+            "idempotency_policy"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "pattern": {
+              "enum": [
+                "fixed_workflow",
+                "single_agent",
+                "multiagent",
+                "hybrid"
+              ]
+            },
+            "max_steps": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "timeout_seconds": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "idempotency_policy": {
+              "type": "string"
+            },
+            "escalation_policy": {
+              "type": "string"
+            }
+          }
+        },
+        "validation": {
+          "type": "object",
+          "required": [
+            "acceptance_criteria",
+            "failure_policy",
+            "output_schema_ref"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "acceptance_criteria": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "failure_policy": {
+              "type": "string"
+            },
+            "output_schema_ref": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

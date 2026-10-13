@@ -1,0 +1,20 @@
+{
+  "run_id": "run-demo-001",
+  "agent_id": "example-agent",
+  "status": "completed",
+  "outcome": {
+    "summary": "A mock review result"
+  },
+  "evidence": [
+    {
+      "ref": "file://approved-reference",
+      "source_type": "local_file",
+      "confidence": 1
+    }
+  ],
+  "side_effects": [],
+  "errors": [],
+  "next_action": "none",
+  "trace_ref": "trace-demo-001",
+  "directive_version": "0.1.0"
+}

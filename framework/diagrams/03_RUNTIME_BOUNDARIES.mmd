@@ -1,0 +1,9 @@
+flowchart TB
+  UI["Human / CLI / external event"] --> Gateway["Input validation + authentication"]
+  Gateway --> Jobs["Durable queue / job record"]
+  Jobs --> Engine["Orchestrator: budgets, loop, policies"]
+  Engine <--> LLM["Model API"]
+  Engine <--> Tools["Authorized tool adapters"]
+  Engine <--> Data["State and evidence store"]
+  Engine --> QA["Validation / approval"]
+  QA --> Result["Observed result + logs"]

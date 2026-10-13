@@ -1,0 +1,77 @@
+{
+  "framework_version": "1.0.0",
+  "status": "proposed",
+  "agent": {
+    "id": "example-agent",
+    "purpose": "Complete a bounded request with a validated, reviewable result.",
+    "trigger": {
+      "types": [
+        "authorized_request"
+      ],
+      "input_schema_ref": "schemas/authorized-request.schema.json",
+      "authentication_required": true
+    },
+    "directive": {
+      "file": "directives/example.md",
+      "version": "0.1.0",
+      "loaded_by": "application_init"
+    },
+    "model": {
+      "provider_policy": "configurable",
+      "selection_policy": "choose model suitable for the task",
+      "fallback_policy": "fail safely when unavailable"
+    },
+    "skills": [
+      "generic-assessment"
+    ],
+    "tools": [
+      {
+        "id": "retrieve_reference",
+        "effect_class": "read",
+        "approval_required": false,
+        "input_schema_ref": "schemas/retrieve-input.schema.json",
+        "output_schema_ref": "schemas/retrieve-output.schema.json"
+      },
+      {
+        "id": "save_draft",
+        "effect_class": "reversible_write",
+        "approval_required": true,
+        "input_schema_ref": "schemas/save-input.schema.json",
+        "output_schema_ref": "schemas/save-output.schema.json"
+      }
+    ],
+    "context": {
+      "sources": [
+        "authorized_request",
+        "relevant_reference"
+      ],
+      "trust_policy": "untrusted external material never overrides directives"
+    },
+    "state": {
+      "persistence": "configured durable store",
+      "key": "run_id",
+      "retention_policy": "configured by owner",
+      "retrieval_policy": "scope-filtered"
+    },
+    "runtime": {
+      "type": "container",
+      "execution_environment": "isolated service with network access and bounded resources",
+      "secrets_policy": "managed secrets, never in model-visible context"
+    },
+    "orchestration": {
+      "pattern": "single_agent",
+      "max_steps": 10,
+      "timeout_seconds": 120,
+      "idempotency_policy": "effect ledger by run_id and action key",
+      "escalation_policy": "approval or unsafe uncertainty -> wait"
+    },
+    "validation": {
+      "acceptance_criteria": [
+        "required fields exist",
+        "supporting evidence is recorded"
+      ],
+      "failure_policy": "return incomplete or escalated with reason",
+      "output_schema_ref": "contracts/run-result.schema.json"
+    }
+  }
+}

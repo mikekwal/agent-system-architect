@@ -1,0 +1,19 @@
+# Design template; not recognized automatically by an agent runtime.
+tool_id: replace_with_tool_id
+description: One observable action that the runtime can actually execute
+input_schema_ref: ./schemas/tool-input.schema.json
+output_schema_ref: ./schemas/tool-output.schema.json
+effect_class: read # read | reversible_write | irreversible_or_external_write
+permissions:
+  scopes: []
+  owner_approval: false
+execution:
+  timeout_ms: 30000
+  retryable_errors: []
+  idempotency_key_required: false
+validation:
+  verify_external_effect: true
+  evidence_fields: []
+observability:
+  log_inputs_redacted: true
+  log_result_metadata: true
